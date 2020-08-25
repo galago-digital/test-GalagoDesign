@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="#00a200">
+	<defs>
+	<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+		<path d="M-942 -42L82 -42L82 726L-942 726Z" />
+	</clipPath>
+	</defs>
+	<g id="85-Sberlogistic_Calculator_1024x768_e" clip-path="url(#cp1)">
+	<g id="Group 6">
+		<g id="Group 5">
+		<g id="Group 4">
+			<g id="Group 3">
+			<path id="Rectangle 3" class="shp0" d="M12.64 27.12L27.04 12.73L27.41 13.1L13.02 27.5L12.64 27.12Z" />
+			<path id="Rectangle 4" class="shp0" d="M12.66 13.13L13.04 12.75L27.43 27.14L27.05 27.52L12.66 13.13Z" />
+			</g>
+		</g>
+		</g>
+		<g id="XMLID_1_">
+		<path id="XMLID_2_" fill-rule="evenodd" class="shp0" d="M20 40C9.03 40 0 31.06 0 20C0 8.94 8.94 0 20 0C31.06 0 40 8.94 40 20C40 31.06 31.06 40 20 40ZM20 0.88C9.47 0.88 0.88 9.47 0.88 20C0.88 30.53 9.47 39.12 20 39.12C30.53 39.12 39.11 30.53 39.11 20C39.11 9.47 30.62 0.88 20 0.88Z" />
+		</g>
+	</g>
+	</g>
+</svg>

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Sero Pro Medium";
+    font-weight: 500;
+    font-style: normal;
+    src: local('Sero Pro Medium'), local('Sero-Pro-Medium'),
+        url('~@/assets/fonts/SeroPro-Medium.woff2') format('woff2'),
+        url('~@/assets/fonts/SeroPro-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Sero Pro';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Sero Pro Regular'), local('Sero-Pro-Regular'),
+        url('~@/assets/fonts/SeroPro.woff2') format('woff2'),
+        url('~@/assets/fonts/SeroPro.woff') format('woff');
+  }

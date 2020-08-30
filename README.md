@@ -1,24 +1,12 @@
-# galago-calc
+# Тестовое задание FrontEnd от Galago Design
 
-## Project setup
-```
-npm install
-```
+Макет калькулятора стоимости для отправки грузов
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Нужно сверстать и собрать по требованиям:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1. Vue-компонент
+2. шаблоны - pug
+3. стили - sass
+4. плагины и внешние ресурсы не допустимы
+5. размеры в em
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

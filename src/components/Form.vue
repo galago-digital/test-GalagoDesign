@@ -342,7 +342,7 @@ export default {
   height: 2.125em;
   background-image: url("../assets/img/ellipse2.svg");
   background-repeat: no-repeat;
-  left: 0.35em;
+  left: 0.3em;
   top: -0.05em;
 }
 
@@ -434,7 +434,7 @@ export default {
 
 .fieldset__radio:checked~.fieldset__overweight::after {
   top: 0.93em;
-  left: 0.4em;
+  left: 0.45em;
 }
 
 .fieldset__label--extra {

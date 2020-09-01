@@ -2,11 +2,16 @@
   form(class="form")
     button(class="button")
     p(class="form-description") Чтобы рассчитать стоимость доставки, нужно ответить всего на 3 вопроса.
+    // списки в разметке лучше использовать по назначению
+    // а то что есть в этом калькуляторе явно не список
+    // это и к параграфам относиться
     ul(class="list")
       li
         fieldset(class="fieldset")
           h2(class="fieldset__question") 1. Какой вес у вашей посылки?
           ul(class="fieldset__list")
+            // vue игнорирует value у элементов с v-model
+            // использовать одновременно change и v-model избыточно
             li
               input(
               type="radio"
@@ -115,6 +120,10 @@
               @change="onInsuranceChecked"
               :disabled="isInsuranceCheckboxDisabled")
               label(for="no-insurance" class="fieldset__label") Нет
+              // чем меньше в шаблоне вычислений тем лучше
+              // поэтому все что можно надо убирать в computed
+              // шаблон без вычислений рендериться быстрее
+              // а в компоненте легче ориентироваться когда все вычисления/логика внутри script
     div(class="result-wrap" v-bind:class="{warn: this.overweight === this.InputValues.OVER_10_NO}")
       p(class="result-wrap_message"
        v-bind:class="{'warn-text': this.overweight === this.InputValues.OVER_10_NO, 'warn-limit': this.insuranceSum > maxInsuranceSum}") {{ resumeMessage ? resumeMessage : 'Отправка будет стоить всего'}}
@@ -163,7 +172,13 @@ export default {
   },
   computed: {
     calcPayment () {
+      // чтобы не писать вот такое (this.weight * 1)
+      // нужно использовать v-model.number - чтобы сразу получить Number
+      //  * 1 лучше вообще не использовать. Number(this.weight) - намного нагляднее и работет предсказуемей
       let payment = ((this.weight * 1) || 0) + (this.delivery * 1) || 0
+      // о v-model и value написал выше
+      // все эти this.InputValues.OVER_10_YES, insuranceSum и т.д. на самом деле не нужны
+      // было бы достаточно значений получаемых в v-model
       if (this.overweight === this.InputValues.OVER_10_YES) {
         payment -= this.priceFor10kg
         if (this.delivery === this.InputValues.DELIVERY_YES) {
@@ -180,6 +195,9 @@ export default {
     }
   },
   methods: {
+    // все эти методы можно было бы заменить computed свойствами
+    // а если не заменять то хотя бы прочитать внимательно что получилось
+    // и увидеть сколько здесь одинаковых строк кода
     onOverweightChecked () {
       if (this.weight === this.InputValues.OVERWEIGHT) {
         this.isOverweightChecked = true
@@ -248,7 +266,7 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-  width: 64em;
+  width: 64em; // чему равен 1em? если все завязано на размер шрифта не стоит полагаться на браузер и пользователя. Нужно задать размер ширфта для html,body в стилях
   background: #f9f9f3;
   margin: 0 auto;
   padding-top: 2.7em;
@@ -257,6 +275,10 @@ export default {
   position: relative;
 }
 .form-description {
+  // очень вредный миксин
+  // он 6 раз добавляет в код font-family: "Sero Pro Medium";
+  // а достаточно сделать это один раз - дочерние элементы будут наследовать
+  // ну и в некскольких местах указать другое начертание шрифта
   @include font("Sero Pro Medium", 1.25em);
   margin-top: 2.8em;
   margin-bottom: 3.1em;
@@ -270,11 +292,14 @@ export default {
   position: absolute;
   right: 3.1em;
   background-image: url("../assets/img/button.svg");
+  //нужно background-repeat: no-repeat; - размер кнопки чуть больше и видно как фон повторяется
   width: 3em;
   height: 3em;
 }
 
 .list {
+  // ИМХО удобнее и наглядней использовать плейсхолдеры для такх вещей
+  // а миксины там где нужно получить результат в зависимости от переданных аргументов
   @include list;
   width: 56.25em;
   border: none;
